@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use strict';
 /**
  * New Relic agent configuration.
@@ -9,7 +10,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['micro-services'],
+  app_name: ['refund_local'],
   /**
    * Your New Relic license key.
    */

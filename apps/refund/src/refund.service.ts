@@ -3,6 +3,8 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { map } from 'rxjs';
 
+import * as rewrelice from 'newrelic';
+
 import {
   ConsultaDeudaDto,
   TokenDto,
@@ -51,6 +53,10 @@ export class RefundService {
     try {
       const data = JSON.stringify(consultaDeudaDto);
 
+      rewrelice.addCustomAttributes({
+        ...consultaDeudaDto,
+      });
+
       return this.httpClient
         .post(`${this.hostApiRefund}/bo/devoluciones/consultaDeuda`, data, {
           headers: {
@@ -66,6 +72,10 @@ export class RefundService {
   async consultarMovxFecha(dto: ConsultaMovFechaDto, token: string) {
     const data = JSON.stringify(dto);
     try {
+      rewrelice.addCustomAttributes({
+        ...dto,
+      });
+
       return this.httpClient
         .post(`${this.hostApiRefund}/devoluciones/consultarMovxFecha`, data, {
           headers: {
@@ -98,6 +108,7 @@ export class RefundService {
 
   log(message: string, err: any) {
     console.log(err);
+    rewrelice.noticeError(err);
     this.logger.error(`${message}: ${JSON.stringify(err)}`);
   }
 }

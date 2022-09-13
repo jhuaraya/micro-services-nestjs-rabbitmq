@@ -1,10 +1,11 @@
 import { HttpStatus, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { RefundModule } from './refund.module';
-import 'newrelic';
+import { NewrelicInterceptor } from './newrelic.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(RefundModule);
+  app.useGlobalInterceptors(new NewrelicInterceptor());
 
   app.useGlobalPipes(
     new ValidationPipe({
