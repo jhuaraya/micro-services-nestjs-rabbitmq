@@ -44,6 +44,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
+    },
+    "refund": {
+      "type": "application",
+      "root": "apps/refund",
+      "entryFile": "main",
+      "sourceRoot": "apps/refund/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/refund/tsconfig.app.json"
+      }
     }
   }
 }
