@@ -9,6 +9,15 @@
     "tsConfigPath": "apps/user/tsconfig.app.json"
   },
   "projects": {
+    "refund": {
+      "type": "application",
+      "root": "apps/refund",
+      "entryFile": "main",
+      "sourceRoot": "apps/refund/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/refund/tsconfig.app.json"
+      }
+    },
     "user": {
       "type": "application",
       "root": "apps/user",
@@ -45,13 +54,22 @@
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     },
-    "refund": {
+    "files": {
       "type": "application",
-      "root": "apps/refund",
+      "root": "apps/files",
       "entryFile": "main",
-      "sourceRoot": "apps/refund/src",
+      "sourceRoot": "apps/files/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/refund/tsconfig.app.json"
+        "tsConfigPath": "apps/files/tsconfig.app.json"
+      }
+    },
+    "refund-bus": {
+      "type": "application",
+      "root": "apps/refund-bus",
+      "entryFile": "main",
+      "sourceRoot": "apps/refund-bus/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/refund-bus/tsconfig.app.json"
       }
     }
   }
